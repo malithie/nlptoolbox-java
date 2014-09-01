@@ -34,16 +34,13 @@ public class FindNameEntityTypeExecutor {
         logger.info("Annotator pipeline initialized");
     }
 
-    List<String> findNameEntityTypeConcatenate(String text,String entityType) {
+   public List<String> findNameEntityTypeConcatenate(String text,String entityType) {
         Constants.EntityType entity = Constants.EntityType.valueOf(entityType);
 
         if (entity == null){
             logger.error("Given Entity Type " + entityType + " is not defined" );
             throw new RuntimeException("Entity Type " + entityType + " is not defined");
         }
-
-
-        logger.info("Finding matches for entity type, " + entity);
 
         // create an empty Annotation just with the given text
         Annotation document = new Annotation(text);

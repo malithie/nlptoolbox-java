@@ -31,7 +31,7 @@ public class FindNameEntityTypeViaDictorneryExecutorTest {
         executor = new FindNameEntityTypeViaDictorneryExecutor();
         end = System.currentTimeMillis();
 
-        logger.info("Time to construct NameEntityTypeExecutor instance : [" + ((end - start)/1000f) + " sec]");
+        logger.info("Time to construct NameEntityTypeViaDictionaryExecutor instance : [" + ((end - start)/1000f) + " sec]");
 
         textBuffer = new StringBuilder();
 

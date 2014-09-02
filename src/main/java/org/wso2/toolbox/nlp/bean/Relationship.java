@@ -4,40 +4,40 @@ package org.wso2.toolbox.nlp.bean;
  * Created by malithi on 8/28/14.
  */
 public class Relationship {
-    private String subject;
-    private String object;
-    private String relationship;
+    private String governor;
+    private String dependent;
+    private String relation;
 
-    public String getSubject() {
-        return subject;
+    public String getGovernor() {
+        return governor;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setGovernor(String governor) {
+        this.governor = governor;
     }
 
-    public String getObject() {
-        return object;
+    public String getDependent() {
+        return dependent;
     }
 
-    public void setObject(String object) {
-        this.object = object;
+    public void setDependent(String dependent) {
+        this.dependent = dependent;
     }
 
-    public String getRelationship() {
-        return relationship;
+    public String getRelation() {
+        return relation;
     }
 
-    public void setRelationship(String relationship) {
-        this.relationship = relationship;
+    public void setRelation(String relation) {
+        this.relation = relation;
     }
 
     @Override
     public String toString() {
         return "Relationship{" +
-                "subject='" + subject + '\'' +
-                ", object='" + object + '\'' +
-                ", relationship='" + relationship + '\'' +
+                "governor='" + governor + '\'' +
+                ", dependent='" + dependent + '\'' +
+                ", relation='" + relation + '\'' +
                 '}';
     }
 }

@@ -19,6 +19,7 @@ public class FindNameEntityTypeExecutorTest {
     private static List<String> concatenateResults;
     private static StringBuilder textBuffer = null;
     private static FindNameEntityTypeExecutor executor = null;
+
     public static void main(String[] args) throws Exception {
         setUp();
         testFindNameEntityTypeExecutor("PERSON");
@@ -31,11 +32,11 @@ public class FindNameEntityTypeExecutorTest {
         executor = new FindNameEntityTypeExecutor();
         end = System.currentTimeMillis();
 
-        logger.info("Time to construct NameEntityTypeExecutor instance : [" + ((end - start)/1000f) + " sec]");
+        logger.info("Time to construct FindNameEntityTypeExecutor instance : [" + ((end - start)/1000f) + " sec]");
 
         textBuffer = new StringBuilder();
 
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream("nameEntityTypeTestFile");
+        InputStream inputStream = ClassLoader.getSystemResourceAsStream("test/nameEntityTypeTestFile");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = bufferedReader.readLine()) != null){
@@ -46,7 +47,6 @@ public class FindNameEntityTypeExecutorTest {
         bufferedReader.close();
 
     }
-
 
     private static void testFindNameEntityTypeExecutor(String entityType){
         System.out.println("==================================================================================");

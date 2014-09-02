@@ -22,13 +22,13 @@ public class FindNLRegexPatternExecutorTest {
 
     public static void main(String[] args) throws Exception {
         setUp();
-        executeTest(1, "[{ner:PERSON}]");
-        executeTest(2, "[{ner:LOCATION}]");
-        executeTest(3, "[{ner:DATE}]");
-        executeTest(4, "([ner: PERSON]+)");
-        executeTest(5, "(/President/ [ner: PERSON]+)");
-        //executeTest(6, "/\"*\\s*([^\\\"]*)\\\\s*/");
-        //executeTest(6, "(/\"/ /\\s*([^\"]*)\\s*/)");
+        testFindNLRegexPattern("[{ner:PERSON}]");
+        testFindNLRegexPattern("[{ner:LOCATION}]");
+        testFindNLRegexPattern("[{ner:DATE}]");
+        testFindNLRegexPattern("([ner: PERSON]+)");
+        testFindNLRegexPattern("(/President/ [ner: PERSON]+)");
+        //testFindNLRegexPattern("/\"*\\s*([^\\\"]*)\\\\s*/");
+        //testFindNLRegexPattern("(/\"/ /\\s*([^\"]*)\\s*/)");
     }
 
     public static void setUp() throws Exception {
@@ -36,11 +36,11 @@ public class FindNLRegexPatternExecutorTest {
         executor = new FindNLRegexPatternExecutor();
         end = System.currentTimeMillis();
 
-        logger.info("Time to construct NLRegexPatternExecutor instance : [" + ((end - start)/1000f) + " sec]");
+        logger.info("Time to construct FindNLRegexPatternExecutor instance : [" + ((end - start)/1000f) + " sec]");
 
         textBuffer = new StringBuilder();
 
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream("obamatohitlor.txt");
+        InputStream inputStream = ClassLoader.getSystemResourceAsStream("test/obamatohitlor.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = bufferedReader.readLine()) != null){
@@ -52,18 +52,17 @@ public class FindNLRegexPatternExecutorTest {
 
     }
 
-
-    private static void executeTest(int testId, String regex){
+    public static void testFindNLRegexPattern(String regex) throws Exception {
         System.out.println("==================================================================================");
-        logger.info(String.format("Test %d: %s",testId, regex));
+        logger.info(String.format("Executing FindNLRegexPatternExecutor.findNLRegexPattern(text, regex)"));
 
         start = System.currentTimeMillis();
         results = executor.findNLRegexPattern(textBuffer.toString(), regex);
         end = System.currentTimeMillis();
 
-        logger.info(String.format("Results of Test %d: %s", testId, results));
-
-        logger.info(String.format("Time to execute NLRegexPatternExecutor.findNLRegexPattern for %s : [%f sec]", regex, ((end - start)/1000f)));
+        logger.info(String.format("Results of Test: %s", results));
+        System.out.println("-----------------------------------------------------------------------------------");
+        logger.info(String.format("Time to execute FindNLRegexPatternExecutor.findNLRegexPattern for %s : [%f sec]", regex, ((end - start) / 1000f)));
     }
 
 }

@@ -9,16 +9,16 @@ import java.util.*;
 /**
  * Created by Chanuka on 8/29/14 AD.
  */
-public class FindNameEntityTypeViaDictorneryExecutor {
+public class FindNameEntityTypeViaDictionaryExecutor {
 
-    private static Logger logger = Logger.getLogger(FindNameEntityTypeViaDictorneryExecutor.class);
+    private static Logger logger = Logger.getLogger(FindNameEntityTypeViaDictionaryExecutor.class);
     private List<String> findNameEntityResults;
     private Set<String> dictionaryNameResults;
 
     private FindNameEntityTypeExecutor executor;
 
 
-    public FindNameEntityTypeViaDictorneryExecutor() {
+    public FindNameEntityTypeViaDictionaryExecutor() {
 
         logger.info("Initiating NameEntityTypeExecutor");
         executor= new FindNameEntityTypeExecutor();
